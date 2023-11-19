@@ -1,6 +1,9 @@
 import { createElement } from "../../soup.js";
 
-export const Counter: Soup.Component = (_, { state }) => {
+export const Counter: Soup.Component<{ title: string }> = (
+  { title },
+  { state }
+) => {
   const counter = state.slice(0);
 
   const onClick = (delta: number) => {
@@ -11,14 +14,14 @@ export const Counter: Soup.Component = (_, { state }) => {
     <div>
       <button onclick={() => onClick(1)}>Increase</button>
       <button onclick={() => onClick(-1)}>Decrease</button>
-      <p>{counter.value}</p>
+      <p>{`${title} ${counter.value}`}</p>
     </div>
   );
 };
 
 const run = () => {
   const root = document.body;
-  const { getNode } = createElement([Counter, {}, []]);
+  const { getNode } = createElement([Counter, { title: "test" }, []]);
   root.appendChild(getNode());
 };
 

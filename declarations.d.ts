@@ -37,8 +37,8 @@ declare namespace Soup {
     children: Array<ComponentDefinition>
   }
 
-  type ComponentDefinition = [
-    Component | AsyncComponent | string,
+  type ComponentDefinition<T extends ComponentProps = {}> = [
+    Component<T> | AsyncComponent<T> | string,
     ComponentProps,
     Array<ComponentDefinition>
   ]

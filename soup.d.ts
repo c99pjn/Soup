@@ -1,5 +1,5 @@
-export declare function createElement(
-  definitions: Soup.ComponentDefinition,
+export declare function createElement<T extends ComponentProps = {}>(
+  definitions: Soup.ComponentDefinition<T>,
   providedSlices?: Map<any, any>
 ): {
   getNode: () => HTMLElement
