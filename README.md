@@ -1,7 +1,7 @@
 # Soup
-Reacting UI library for fun.
+Reactive UI library for fun.
 - JSX compiled through typescript
-- Recognizable concepts such as memo, effects, state and refs
+- Recognisable concepts such as memo, effects, state and refs
 - Components only re-render when props change, or any children props change (always memo)
 - Signals like state slices, automatic re-rendering when value is changed
 - State sliced can be passed as props, re-rending any component, on change, reading the value
@@ -55,7 +55,7 @@ const elementRef = state.ref<HTMLDivElement | null>(null);
 const ref = state.ref<number>(0);
 ref.value++;
 ```
-Similar to react refs, a ref can be passed to any component using the special `ref` prop. This will set the ref value to the rendered dom node. Refs can also be used as a stable data container, persisting accross renders.
+Similar to react refs, a ref can be passed to any component using the special `ref` prop. This will set the ref value to the rendered dom node. Refs can also be used as a stable data container, persisting across renders.
 
 ```jsx
 const Component: Soup.Component = (_, { state }) => {
@@ -84,7 +84,7 @@ Slice creates a slice of state which functions similar to signals in Preact. Any
 // Pass the slice, ChildComponent will only re-render if it reads the value of the slice
 <ChildComponent counter={counter} />
 ```
-You can also explicity subscribe to the value of the slice in case you want to react without re-rendering the component or if you need to subscribe outside Soup.
+You can also explicitly subscribe to the value of the slice in case you want to react without re-rendering the component or if you need to subscribe outside Soup.
 
 ### state.providedSlice()
 Similarly to state.slice() if will create a slice, but it will be automatically provided to all children. If a provided slice already exists (is provided by a parent), it will instead return that slice.
@@ -130,7 +130,7 @@ const value = memo(() => somethingExpensive(), []);
 // Memoize a callback
 const callback = memo(() => () => {}, []);
 ```
-The last argument is the dependency array. The memoization will only re-compute when any of the enties in this array is changed.
+The last argument is the dependency array. The memoization will only re-compute when any of the entries in this array is changed.
 ```ts
 // Re-compute when input changes
 const value = memo(() => somethingExpensive(input), [input]);
