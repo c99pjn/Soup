@@ -10,12 +10,12 @@ Reactive UI library for fun.
 
 ## Simple example component
 Each component is called with two arguments
-1. An object of properties passed by the component rendering it. The type signature of this object is a generic of `Soup.Component<Props>`
+1. An object of properties passed by the component rendering it. The type type of this object is the generic of `Soup.Component<Props>`
 2. An object with component instance functions, state and children
    1. state - the state object, more on this later
    2. memo - function to create stable references based on dependencies
    3. effect - function to run effects after the component has been rendered
-   4. children - array of children render under this component by the parent component
+   4. children - array of children rendered under this component by the parent component
 
 ```jsx
 export const Counter: Soup.Component<{ title: string }> = (
@@ -51,7 +51,6 @@ type State = {
  type Ref<T> = { value: T }
 ```
 ```ts
-const elementRef = state.ref<HTMLDivElement | null>(null);
 const ref = state.ref<number>(0);
 ref.value++;
 ```
@@ -92,7 +91,7 @@ Similarly to state.slice() if will create a slice, but it will be automatically 
 export const sharedCounter = () => 0
 ```
 ```ts
-const counter = state.providedSlice<number>(sharedCounter);
+const counter = state.providedSlice(sharedCounter);
 ```
 In order to identify the slice it needs a stable reference, similar to react contexts.
 
